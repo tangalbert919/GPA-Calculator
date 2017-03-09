@@ -21,19 +21,15 @@ pacman -S jdk8-openjdk
 Fedora:
 su -c "dnf install java-1.8.0-openjdk-devel"
 
-If you're building this from source code, it is recommended that you use an IDE to export this from source code to jar file. If you are doing this from the command line (or Terminal), you need to run these commands from the source directory of this project:
+Even though this program was compiled with Java 6, the latest STABLE version of Java is recommended.
 
-javac src/io/github/tangalbert919/*
+If you're building this from source code, you can run compile.bat if you're using Windows, or compile.sh if you're on a Mac or running Linux.
 
-jar cvf GPA-Calculator.jar src/io/github/tangalbert919/IOFile.class src/io/github/tangalbert919/Main.class
+Windows users can use the batch file that's been included to the project. Mac and Linux users can use the run.sh file by opening a Terminal and typing this:
+./run.sh
+Make sure you cd to the project directory or the shell script will fail.
 
-Windows users can use the batch file that I've included to the project. If the jar file is not "GPA-Calculator.jar", edit the batch file and fix it from there or rename the jar file..
-Mac OS X (or macOS) and Linux users can type this into the Terminal to run it:
-java -jar <name>.jar
-
-Replace <name> with the name of the jar file you created.
-
-Change the name of the jar file if needed. Make sure the terminal is running in the same directory as the jar file or you'll need to specify a path that the Terminal can use to get there.
+If the jar file name isn't "GPA-Calculator", please fix it. If you don't want to do that, edit the batch or script files as needed.
 
 +---------------------------+
 |                           |
