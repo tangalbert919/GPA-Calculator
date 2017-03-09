@@ -1,0 +1,50 @@
++---------------------------+
+|                           |
+|          HOW-TO           |
+|                           |
++---------------------------+
+
+Before starting, please make sure you have Java installed. 
+
+For Windows and Mac OS X (or macOS) users, go here:
+http://www.java.com
+
+For Linux users, launch the Terminal. The commands you will type in depend on what distribution you have:
+
+Ubuntu or Debian:
+sudo apt install openjdk-8-jdk
+
+Archlinux (pick either one):
+pacman -S jdk7-openjdk
+pacman -S jdk8-openjdk
+
+Fedora:
+su -c "dnf install java-1.8.0-openjdk-devel"
+
+If you're building this from source code, it is recommended that you use an IDE to export this from source code to jar file. If you are doing this from the command line (or Terminal), you need to run these commands from the source directory of this project:
+
+javac src/io/github/tangalbert919/*
+
+jar cvf GPA-Calculator.jar src/io/github/tangalbert919/IOFile.class src/io/github/tangalbert919/Main.class
+
+Windows users can use the batch file that I've included to the project. If the jar file is not "GPA-Calculator.jar", edit the batch file and fix it from there or rename the jar file..
+Mac OS X (or macOS) and Linux users can type this into the Terminal to run it:
+java -jar <name>.jar
+
+Replace <name> with the name of the jar file you created.
+
+Change the name of the jar file if needed. Make sure the terminal is running in the same directory as the jar file or you'll need to specify a path that the Terminal can use to get there.
+
++---------------------------+
+|                           |
+|         TEMPLATE          |
+|                           |
++---------------------------+
+
+The first line in your text file should contain the number of classes you have. The next few lines will have a grade and a multiplier on each line.
+Here's an example:
+2
+97 1.24
+85 1.00
+'2' is the number of classes I have. '97 1.24' means "I have a 97 in a class with a multiplier of 1.24". You must follow this simple rule when you're making your text file. That file must be created using a normal text editor, such as Notepad. Programs such as Microsoft word add some encoding to any document it creates, which is unreadable to Java and will throw out errors.
+If you can, refer to the "template.txt" file I have included with this.
