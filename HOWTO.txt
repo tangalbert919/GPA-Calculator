@@ -9,7 +9,8 @@ Before starting, please make sure you have Java installed.
 For Windows and Mac OS X (or macOS) users, go here:
 http://www.java.com
 
-For Linux users, launch the Terminal. The commands you will type in depend on what distribution you have:
+For Linux users, launch the Terminal. The commands you will type in depend on what distribution 
+you have:
 
 Ubuntu or Debian:
 sudo apt install openjdk-8-jdk
@@ -23,13 +24,16 @@ su -c "dnf install java-1.8.0-openjdk-devel"
 
 Even though this program was compiled with Java 6, the latest STABLE version of Java is recommended.
 
-If you're building this from source code, you can run compile.bat if you're using Windows, or compile.sh if you're on a Mac or running Linux.
+If you're building this from source code, you can run compile.bat if you're using Windows, or 
+compile.sh if you're on a Mac or running Linux.
 
-Windows users can use the batch file that's been included to the project. Mac and Linux users can use the run.sh file by opening a Terminal and typing this:
+Windows users can use the batch file that's been included to the project. Mac and Linux users can 
+use the run.sh file by opening a Terminal and typing this:
 ./run.sh
 Make sure you cd to the project directory or the shell script will fail.
 
-If the jar file name isn't "GPA-Calculator", please fix it. If you don't want to do that, edit the batch or script files as needed.
+If the jar file name isn't "GPA-Calculator", please fix it. If you don't want to do that, edit the 
+batch or script files as needed.
 
 +---------------------------+
 |                           |
@@ -37,10 +41,15 @@ If the jar file name isn't "GPA-Calculator", please fix it. If you don't want to
 |                           |
 +---------------------------+
 
-The first line in your text file should contain the number of classes you have. The next few lines will have a grade and a multiplier on each line.
+The first line in your text file should contain the number of classes you have. The next few lines 
+will have a grade and a multiplier on each line.
 Here's an example:
 2
 97 1.24
 85 1.00
-'2' is the number of classes I have. '97 1.24' means "I have a 97 in a class with a multiplier of 1.24". You must follow this simple rule when you're making your text file. That file must be created using a normal text editor, such as Notepad. Programs such as Microsoft word add some encoding to any document it creates, which is unreadable to Java and will throw out errors.
+'2' is the number of classes I have. '97 1.24' means "I have a 97 in a class with a multiplier of 
+1.24". You must follow this simple rule when you're making your text file. That file must be 
+created using a normal text editor, such as Notepad. Programs such as Microsoft word add some 
+encoding to any document it creates, which is unreadable to Java and will throw out errors.
+
 If you can, refer to the "template.txt" file I have included with this.

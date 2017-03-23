@@ -9,8 +9,9 @@ This is for people who want to find out what their GPA is, and those people are 
 * Get your GPA based on percentage (0-100 scale), both weighted and unweighted.
 * Minimalist GUI (and I mean MINIMALIST). You'll have to launch a command prompt (or Terminal on non-Windows systems) for this.
 * Reads the text file you specified to calculate your GPA (refer to the HOWTO.txt file for instructions).
-* Can run on Java 6 and newer.
+* As of version 1.01, Java 7 is the minimum. Java 6 support was removed due to how old and unsecured it is.
 
 ### Planned
 -------------------
 * Get your GPA based on credits (both weighted and unweighted).
+* Create a graph that shows how your GPA is changing.

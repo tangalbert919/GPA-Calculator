@@ -13,6 +13,7 @@ public class IOFile {
 	private double GPA;
 	private double GPA2;
 	private int lines;
+	DecimalFormat format = new DecimalFormat("0.00");
 	
 	public IOFile() {
 		file = "";
@@ -21,28 +22,25 @@ public class IOFile {
 		file = string;
 	}
 	public void rwFile() throws IOException {
-		DecimalFormat format = new DecimalFormat("0.00");
+		
 		Scanner input = new Scanner(new File(file));
-		BufferedWriter output = new BufferedWriter(new FileWriter("WeightedGPA.txt"));
-		BufferedWriter output2 = new BufferedWriter(new FileWriter("UnweightedGPA.txt"));
+		BufferedWriter output = new BufferedWriter(new FileWriter("GPA.txt"));
 		
 		lines = input.nextInt();
 		input.nextLine();
 		
-		int grade = 0;
-		double multiplier = 0;
+		double grade;
+		double multiplier;
 		
 		while (input.hasNext())
 			for (int i = 0; i < lines; i++) {
-				grade = input.nextInt();
+				grade = input.nextDouble();
 				multiplier = input.nextDouble();
 				int j = i + 1;
 				System.out.println(grade + " " + multiplier);
-				System.out.println("Grade in this class is: " + format.format(calculateGPA(grade,multiplier)));
-				output.write("Grade in class " + j +  " is " + format.format(grade * multiplier));
-				output2.write("Grade in class " + j + " is " + calculateGPA2(grade));
+				System.out.println("Grade in class " + j + " is: " + format.format(calculateGPA(grade,multiplier)) + " (" + grade + " without multiplier).");
+				output.write("Grade in class " + j +  " is " + format.format(grade * multiplier) + " (" + calculateGPA2(grade) + " without multiplier).");
 				output.newLine();
-				output2.newLine();
 				input.nextLine();
 			}
 		calculateAverage();
@@ -50,17 +48,17 @@ public class IOFile {
 		System.out.println("Average weighted GPA is: " + format.format(GPA));
 		System.out.println("Average unweighted GPA is: " + format.format(GPA2));
 		output.write("Average weighted GPA is: " + format.format(GPA));
-		output2.write("Average unweighted GPA is: " + GPA2);
+		output.newLine();
+		output.write("Average unweighted GPA is: " + format.format(GPA2));
 		input.close();
 		output.close();
-		output2.close();
 	}
-	public double calculateGPA(int grade, double multiplier) { // Weighted GPA
+	public double calculateGPA(double grade, double multiplier) { // Weighted GPA
 		double amount = grade * multiplier;
 		GPA = GPA + amount;
 		return amount;
 	}
-	public double calculateGPA2(int grade) { // Unweighted GPA
+	public double calculateGPA2(double grade) { // Unweighted GPA
 		GPA2 = GPA2 + grade;
 		return grade;
 	}

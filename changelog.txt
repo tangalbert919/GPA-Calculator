@@ -1,0 +1,12 @@
++-----------------+
+|    CHANGELOG    |
++-----------------+
+
+Version 1.01 (March 23, 2017)
+* Only one output stream is needed now.
+* Rename output file to "GPA.txt".
+* Both unweighted and weighted GPA are in the same output file now.
+* Convert variable "grade" to double.
+* Some code cleanup.
+* Fix script and batch files.
+- Removed Java 6 support.
