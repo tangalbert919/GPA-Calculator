@@ -2,6 +2,11 @@
 |    CHANGELOG    |
 +-----------------+
 
+Version 1.10 (March 31, 2017)
++ You can now compare results to your last run (requires that you run the program once).
++ Custom error messages are provided to help you.
+* More comments added for other developers.
+
 Version 1.01 (March 23, 2017)
 * Only one output stream is needed now.
 * Rename output file to "GPA.txt".

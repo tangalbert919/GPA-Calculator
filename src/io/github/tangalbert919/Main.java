@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) throws IOException {
-		System.out.println("GPA Calculator v1.01");
+		System.out.println("GPA Calculator v1.10");
 		System.out.print("Enter the file name (Ex: output.txt) --> ");
 		String input = enterString();
 		IOFile file = new IOFile(input);
