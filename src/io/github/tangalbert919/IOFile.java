@@ -7,13 +7,13 @@ import java.io.FileWriter;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.text.DecimalFormat;
-import java.util.Scanner;
 
 public class IOFile {
 	
 	private static String file;
 	private double GPA;
 	private double GPA2;
+	private double Credits;
 	private int lines;
 	private DecimalFormat format = new DecimalFormat("0.00");
 	
@@ -38,6 +38,7 @@ public class IOFile {
                 for (int i = 0; i < lines; i++) {
                     grade = input.nextDouble();
                     multiplier = input.nextDouble();
+                    calculateCredits(grade);
                     int j = i + 1;
                     System.out.println(grade + " " + multiplier);
                     System.out.println("Grade in class " + j + " is: " + format.format(calculateGPA(grade,multiplier)) + " (" + grade + " without multiplier).");
@@ -122,7 +123,16 @@ public class IOFile {
 		return GPA;
 	}
 	private double calculateAverage2() { // Calculate the average from unweighted GPA
-		GPA2 = GPA2 / lines;
-		return GPA2;
-	}
+        GPA2 = GPA2 / lines;
+        return GPA2;
+    }
+    private double calculateCredits(double grade) {
+	    if (grade <= 100 && grade >= 94)  // A+ or A
+	        Credits += 4.0;
+        if (grade < 94 && grade >= 90) // A-
+	        Credits += 3.7;
+        if (grade >= 87 && grade < 90) // B+
+            Credits += 3.3;
+        return Credits;
+    }
 }

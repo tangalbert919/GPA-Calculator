@@ -1,8 +1,10 @@
 echo Compiling java files...
 
-javac src/io/github/tangalbert919/*
+javac src/io/github/tangalbert919/*.java
 
-jar cvf GPA-Calculator.jar src/io/github/tangalbert919/IOFile.class src/io/github/tangalbert919/Main.class
+cd src
+
+jar cvfm ../GPA-Calculator.jar ../manifest.txt src/io/github/tangalbert919/*.class
 
 echo DONE.
 

@@ -22,7 +22,7 @@ pacman -S jdk8-openjdk
 Fedora:
 su -c "dnf install java-1.8.0-openjdk-devel"
 
-Even though this program was compiled with Java 6, the latest STABLE version of Java is recommended.
+If you downloaded the jar file from GitHub, using the latest version of Java is recommended.
 
 If you're building this from source code, you can run compile.bat if you're using Windows, or 
 compile.sh if you're on a Mac or running Linux.
