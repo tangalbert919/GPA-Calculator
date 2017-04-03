@@ -42,14 +42,18 @@ batch or script files as needed.
 +---------------------------+
 
 The first line in your text file should contain the number of classes you have. The next few lines 
-will have a grade and a multiplier on each line.
+will have a grade, a multiplier, and a digit from 0 to 2 on each line.
+The third digit means the following:
+0 = Regular class
+1 = Pre-AP or Honors class
+2 = AP or IB class
 Here's an example:
 2
-97 1.24
-85 1.00
-'2' is the number of classes I have. '97 1.24' means "I have a 97 in a class with a multiplier of 
-1.24". You must follow this simple rule when you're making your text file. That file must be 
-created using a normal text editor, such as Notepad. Programs such as Microsoft word add some 
-encoding to any document it creates, which is unreadable to Java and will throw out errors.
+97 1.24 2
+85 1.00 0
+'2' is the number of classes I have. '97 1.24 2' means "I have a 97 in a class with a multiplier of
+1.24, and it's an AP class". You must follow this simple rule when you're making your text file.
+That file must be created using a normal text editor, such as Notepad. Programs such as Microsoft
+Word add some encoding to any document it creates, which is unreadable to Java and will throw out errors.
 
 If you can, refer to the "template.txt" file I have included with this.

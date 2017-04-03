@@ -2,6 +2,18 @@
 |    CHANGELOG    |
 +-----------------+
 
+Version 1.20 alpha 2 (April 3, 2017)
++ A lot more comments added for those who want to read the code, but have little or no Java experience.
++ Credit GPA is working (but only weighted).
++ You can see how many points your GPA improved or dropped now.
++ You can set a class to be honors or AP. Read the "HOWTO.txt" file for details.
+* Only one method is needed to calculate both weighted and unweighted GPA now.
+
+Version 1.20 alpha 1 (April 2, 2017)
++ Initial work on credit GPA
++ Added manifest so the compilation and execution of jar file succeeds.
+* Fixed the compilation shell scripts and batch executables.
+
 Version 1.10 (March 31, 2017)
 + You can now compare results to your last run (requires that you run the program once).
 + Custom error messages are provided to help you.
