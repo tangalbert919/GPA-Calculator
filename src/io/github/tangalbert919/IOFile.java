@@ -8,12 +8,16 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.text.DecimalFormat;
 
+/**
+ * All of the calculations are handled in this class.
+ */
 public class IOFile {
 	
 	private static String file;
 	private double GPA;
 	private double GPA2;
 	private double Credits;
+	private double Credits2;
 	private int lines;
 	private DecimalFormat format = new DecimalFormat("0.00");
 	private DecimalFormat format2 = new DecimalFormat("0.000");
@@ -72,7 +76,8 @@ public class IOFile {
             // Display the results to the user, and then write it to the text file afterwards.
             System.out.println("Average weighted GPA is: " + format.format(GPA));
             System.out.println("Average unweighted GPA is: " + format.format(GPA2));
-            System.out.println("Average credit GPA is: " + format.format(Credits));
+            System.out.println("Average weighted credit GPA is: " + format.format(Credits));
+            System.out.println("Average unweighted credit GPA is: " + format.format(Credits2));
             output.write("Average weighted GPA is: " + format.format(GPA));
             output.newLine();
             output.write("Average unweighted GPA is: " + format.format(GPA2));
@@ -154,30 +159,54 @@ public class IOFile {
 		GPA2 = GPA2 / lines;
 	}
     private double calculateCredits(double grade, double honors) { // Add credits for each class.
-	    if (grade <= 100 && grade >= 94)  // A+ or A
-	        Credits += 4.0;
-        if (grade < 94 && grade >= 90) // A-
-	        Credits += 3.7;
-        if (grade < 90 && grade >= 87) // B+
+	    if (grade <= 100 && grade >= 94) { // A+ or A
+            Credits += 4.0;
+            Credits2 += 4.0;
+        }
+        if (grade < 94 && grade >= 90) { // A-
+            Credits += 3.7;
+            Credits2 += 3.7;
+        }
+        if (grade < 90 && grade >= 87) { // B+
             Credits += 3.3;
-        if (grade < 87 && grade >= 84) // B
+            Credits2 += 3.3;
+        }
+        if (grade < 87 && grade >= 84) { // B
             Credits += 3.0;
-        if (grade < 84 && grade >= 80) // B-
+            Credits2 += 3.0;
+        }
+        if (grade < 84 && grade >= 80) { // B-
             Credits += 2.7;
-        if (grade < 80 && grade >= 77) // C+
+            Credits += 2.7;
+        }
+        if (grade < 80 && grade >= 77) { // C+
             Credits += 2.3;
-        if (grade < 77 && grade >= 74) // C
+            Credits += 2.3;
+        }
+        if (grade < 77 && grade >= 74) { // C
             Credits += 2.0;
-        if (grade < 74 && grade >= 70) // C-
+            Credits += 2.0;
+        }
+        if (grade < 74 && grade >= 70) { // C-
             Credits += 1.7;
-        if (grade < 70 && grade >= 67) // D+
+            Credits2 += 1.7;
+        }
+        if (grade < 70 && grade >= 67) { // D+
             Credits += 1.3;
-        if (grade < 67 && grade >= 64) // D
+            Credits += 1.3;
+        }
+        if (grade < 67 && grade >= 64) { // D
             Credits += 1.0;
-        if (grade < 64 && grade >= 60) // D-
+            Credits += 1.0;
+        }
+        if (grade < 64 && grade >= 60) { // D-
             Credits += 0.7;
-        if (grade < 60) // F
+            Credits += 0.7;
+        }
+        if (grade < 60) { // F
             Credits += 0;
+            Credits2 += 0;
+        }
         if (honors == 1)
             Credits += 0.5;
         if (honors == 2)

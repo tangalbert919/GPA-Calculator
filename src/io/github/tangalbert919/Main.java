@@ -3,10 +3,13 @@ package io.github.tangalbert919;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * The command-line main class. Primarily used.
+ */
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("GPA Calculator v1.20 alpha 2");
+		System.out.println("GPA Calculator v1.20");
 		System.out.print("Enter the file name (Ex: input.txt ) --> ");
 		String input = enterString();
 		IOFile file = new IOFile(input);
