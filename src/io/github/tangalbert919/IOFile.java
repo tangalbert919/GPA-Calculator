@@ -82,7 +82,9 @@ public class IOFile {
             output.newLine();
             output.write("Average unweighted GPA is: " + format.format(GPA2));
             output.newLine();
-            output.write("Average credit GPA is: " + format.format(Credits));
+            output.write("Average weighted credit GPA is: " + format.format(Credits));
+            output.newLine();
+            output.write("Average unweighted credit GPA is: " + format.format(Credits2));
             output.newLine();
 
             // Close the input and output streams to prevent resource leak.

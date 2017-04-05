@@ -2,6 +2,9 @@
 |    CHANGELOG    |
 +-----------------+
 
+Version 1.20 (April 5, 2017)
++ Unweighted credit GPA can now be calculated.
+
 Version 1.20 alpha 2 (April 3, 2017)
 + A lot more comments added for those who want to read the code, but have little or no Java experience.
 + Credit GPA is working (but only weighted).
