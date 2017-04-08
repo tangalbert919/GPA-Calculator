@@ -9,8 +9,8 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("GPA Calculator v1.20");
-		System.out.print("Enter the file name (Ex: input.txt ) --> ");
+		System.out.println("GPA Calculator v1.30 alpha 1");
+		System.out.print("Enter the file name (Ex: input.txt) --> ");
 		String input = enterString();
 		IOFile file = new IOFile(input);
 		file.rwFile();

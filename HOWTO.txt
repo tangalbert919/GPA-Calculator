@@ -24,8 +24,10 @@ su -c "dnf install java-1.8.0-openjdk-devel"
 
 If you downloaded the jar file from GitHub, using the latest version of Java is recommended.
 
-If you're building this from source code, you can run compile.bat if you're using Windows, or 
-compile.sh if you're on a Mac or running Linux.
+If you're building this from source code, use compile.bat if running Windows.
+
+Mac and Linux users, we have 2 files: compile-normal.sh and compile-gui.sh. If you want the normal
+command line version, use compile-normal.sh. If you want the GUI version, use compile-GUI.sh.
 
 Windows users can use the batch file that's been included to the project. Mac and Linux users can 
 use the run.sh file by opening a Terminal and typing this:
