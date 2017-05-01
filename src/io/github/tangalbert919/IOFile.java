@@ -138,7 +138,7 @@ public class IOFile {
                 j4 = j - j2;
                 System.out.println("Your unweighted GPA improved by " + format2.format(j3) + "% (" + format.format(j4) + " points).");
             }
-            else if (j < j2) { // Current unweighted GPA is better than the last one.
+            else if (j < j2) { // Current unweighted GPA is worse than the last one.
                 j3 = j2 / j;
                 j4 = j2 - j;
                 System.out.println("Your unweighted GPA dropped by " + format2.format(j3) + "% (" + format.format(j4) + " points).");
@@ -151,7 +151,7 @@ public class IOFile {
 	        System.out.println("Your last results will be in \"LastTime.txt\".");
         }
     }
-	private void calculateGPA(double grade, double multiplier) { // Weighted GPA
+	private void calculateGPA(double grade, double multiplier) { // Add up the grades for both weighted and unweighted GPA
 		double amount = grade * multiplier;
 		GPA += amount;
 		GPA2 += grade;
@@ -160,7 +160,7 @@ public class IOFile {
 		GPA = GPA / lines;
 		GPA2 = GPA2 / lines;
 	}
-    private double calculateCredits(double grade, double honors) { // Add credits for each class.
+    private void calculateCredits(double grade, double honors) { // Add credits for each class.
 	    if (grade <= 100 && grade >= 94) { // A+ or A
             Credits += 4.0;
             Credits2 += 4.0;
@@ -179,15 +179,15 @@ public class IOFile {
         }
         if (grade < 84 && grade >= 80) { // B-
             Credits += 2.7;
-            Credits += 2.7;
+            Credits2 += 2.7;
         }
         if (grade < 80 && grade >= 77) { // C+
             Credits += 2.3;
-            Credits += 2.3;
+            Credits2 += 2.3;
         }
         if (grade < 77 && grade >= 74) { // C
             Credits += 2.0;
-            Credits += 2.0;
+            Credits2 += 2.0;
         }
         if (grade < 74 && grade >= 70) { // C-
             Credits += 1.7;
@@ -195,15 +195,15 @@ public class IOFile {
         }
         if (grade < 70 && grade >= 67) { // D+
             Credits += 1.3;
-            Credits += 1.3;
+            Credits2 += 1.3;
         }
         if (grade < 67 && grade >= 64) { // D
             Credits += 1.0;
-            Credits += 1.0;
+            Credits2 += 1.0;
         }
         if (grade < 64 && grade >= 60) { // D-
             Credits += 0.7;
-            Credits += 0.7;
+            Credits2 += 0.7;
         }
         if (grade < 60) { // F
             Credits += 0;
@@ -213,10 +213,9 @@ public class IOFile {
             Credits += 0.5;
         if (honors == 2)
             Credits += 1.0;
-        return Credits;
     }
-    private double calculateCredits2() { // Calculate average credit GPA
+    private void calculateCredits2() { // Calculate average credit GPA
 	    Credits = Credits / lines;
-	    return Credits;
+	    Credits2 = Credits2 / lines;
     }
 }
