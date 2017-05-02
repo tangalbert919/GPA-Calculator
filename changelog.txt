@@ -2,6 +2,11 @@
 |    CHANGELOG    |
 +-----------------+
 
+Version 1.30 (May 2, 2017)
++ We can compare credit GPA results now.
+* Decent modifications to the GUI.
+* Major code cleanups in IOFile.
+
 Version 1.30 alpha 2 (May 1, 2017)
 + GUI complete. Testing needed.
 * Fixed unweighted credit GPA not being divided.

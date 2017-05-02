@@ -11,11 +11,14 @@ import java.awt.*;
 public class Main2 {
 
     public static void main(String args[]) {
-        JFrame gui = new JFrame("GPA Calculator v1.30 alpha 3");
+        // We need to create a JFrame for this.
+        JFrame gui = new JFrame("GPA Calculator v1.30");
         gui.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
+        // The JPanel needs to be added, and the GUI needs a size.
         gui.add(new GPACalcGUI());
         gui.setSize(new Dimension(400,200));
+        gui.setResizable(false);
         gui.setVisible(true);
     }
 }

@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
  */
 public class GPACalcGUI extends JPanel implements ActionListener {
     private JTextField text;
+    private JTextArea textarea;
     GPACalcGUI() {
         super(new GridBagLayout());
 
@@ -20,11 +21,15 @@ public class GPACalcGUI extends JPanel implements ActionListener {
         // The user needs to know what exactly they need to do.
         JLabel label = new JLabel("Type the name of the file here. Then press Enter.");
 
-        // The user needs an example.
+        // The user needs an example, and where the output will be.
         JLabel label2 = new JLabel("Example: template.txt");
         JLabel label3 = new JLabel("Your results will be in \"GPA.txt\".");
 
-        // The stuff above needs to be displayed. For this, we use JPanel to get it done.
+        // We need a text area for output.
+        textarea = new JTextArea(5, 15);
+        JScrollPane scrollPane = new JScrollPane(textarea);
+
+        // The stuff above needs to be displayed. For this, we use GridBagConstraints to get it done.
          GridBagConstraints c = new GridBagConstraints();
          c.gridwidth = GridBagConstraints.REMAINDER;
 
@@ -33,12 +38,18 @@ public class GPACalcGUI extends JPanel implements ActionListener {
          add(text, c);
          add(label2, c);
          add(label3, c);
+         add(scrollPane, c);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         String filename = text.getText();
-        IOFile file = new IOFile(filename);
-        file.rwFile();
+        if (filename.equals("info"))
+            textarea.append("GPA Calculator v1.30 \n");
+        else {
+            IOFile file = new IOFile(filename);
+            file.rwFile();
+            textarea.append("GPA.txt file created.");
+        }
     }
 }

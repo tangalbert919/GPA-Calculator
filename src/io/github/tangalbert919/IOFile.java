@@ -21,7 +21,6 @@ public class IOFile {
 	private int lines;
 	private DecimalFormat format = new DecimalFormat("0.00");
 	private DecimalFormat format2 = new DecimalFormat("0.000");
-	private boolean gui;
 	
 	public IOFile() { // Default constructor
 		file = "";
@@ -57,59 +56,65 @@ public class IOFile {
 
                     // Integer "j" is used to tell the user which class they have what grade in.
                     int j = i + 1;
+                    String k = format.format(grade * multiplier);
 
                     // This method is only executed for debugging reasons. Everything else, comment it.
                     // System.out.println(grade + " " + multiplier);
 
                     // Display the grade to the user and write it to the text file.
-                    System.out.println("Grade in class " + j + " is: " + format.format(grade * multiplier) + " (" + grade + " without multiplier).");
-                    output.write("Grade in class " + j +  " is " + format.format(grade * multiplier) + " (" + grade + " without multiplier).");
+                    System.out.println("Grade in class " + j + " is: " + k + " (" + grade + " without multiplier).");
+                    output.write("Grade in class " + j +  " is " + k + " (" + grade + " without multiplier).");
 
                     // Create a new line for the output file, and go to the next file for the input file. Not doing this causes errors.
                     output.newLine();
                     input.nextLine();
-
-
                 }
 
             // Calculate the average weighted, unweighted, and credit GPA.
             calculateAverage();
-            calculateCredits2();
 
             // Display the results to the user, and then write it to the text file afterwards.
             System.out.println("Average weighted GPA is: " + format.format(GPA));
             System.out.println("Average unweighted GPA is: " + format.format(GPA2));
             System.out.println("Average weighted credit GPA is: " + format.format(Credits));
             System.out.println("Average unweighted credit GPA is: " + format.format(Credits2));
-            output.write("Average weighted GPA is: " + format.format(GPA));
-            output.newLine();
-            output.write("Average unweighted GPA is: " + format.format(GPA2));
-            output.newLine();
-            output.write("Average weighted credit GPA is: " + format.format(Credits));
-            output.newLine();
-            output.write("Average unweighted credit GPA is: " + format.format(Credits2));
-            output.newLine();
+            output.write("Average weighted GPA is: " + format.format(GPA) + "\n");
+            output.write("Average unweighted GPA is: " + format.format(GPA2) + "\n");
+            output.write("Average weighted credit GPA is: " + format.format(Credits) + "\n");
+            output.write("Average unweighted credit GPA is: " + format.format(Credits2) + "\n");
 
             // Close the input and output streams to prevent resource leak.
             input.close();
             output.close();
 
             // Compare the results, and then write them to the text file afterwards.
-            compareLast(GPA, GPA2);
-            writeResults(format.format(GPA), format.format(GPA2));
+            compareLast(GPA, GPA2, Credits, Credits2);
+            writeResults(format.format(GPA), format.format(GPA2), format.format(Credits), format.format(Credits2));
 		} catch (IOException e) {
+		    errorFile();
 		    System.out.println("Sorry, but we can't find the file specified.");
 		    System.out.println("Perhaps you misspelled the file or forgot the \".txt\" ending.");
 		    System.out.println("Please re-run this program and try again.");
         }
-
 	}
-	private void writeResults(String i, String j) throws IOException { // Write results to new file.
+	private void errorFile() {
+	    try {
+            BufferedWriter output = new BufferedWriter(new FileWriter("GPA.txt"));
+            output.write("Sorry, but we can't find the file specified. \n");
+            output.write("Perhaps you misspelled the file or forgot the \".txt\" ending. \n");
+            output.write("Please re-run this program and try again.");
+            output.close();
+        } catch (IOException e) {
+	        System.out.println("This is just impossible.");
+        }
+
+    }
+	private void writeResults(String i, String j, String k, String l) throws IOException { // Write results to new file.
 	    BufferedWriter output = new BufferedWriter(new FileWriter("LastTime.txt"));
-	    output.write(i + " " + j);
+	    output.write(i + " " + j + " " + k + " " + l);
 	    output.close();
     }
-    private void compareLast(double i, double j) { // Compare current results to results from last run
+    private void compareLast(double i, double j, double k, double l) { // Compare current results to results from last run
 	    try {
 	        /*
 	         * Using decimal format turns number into String. Using parseDouble() should convert these
@@ -117,13 +122,22 @@ public class IOFile {
 	         */
 	        i = Double.parseDouble(format.format(i));
 	        j = Double.parseDouble(format.format(j));
+	        // i and j are for percentage GPA
 	        double i3; // Holds percentage gain/loss from weighted GPA
 	        double j3; // Holds percentage gain/loss from unweighted GPA
             double i4; // Holds point gain/loss from weighted GPA
             double j4; // Holds point gain/loss from unweighted GPA
+            // k and l are for credit GPA
+            double k3; // Holds percentage gain/loss from weighted GPA
+            double k4; // Holds percentage gain/loss from unweighted GPA
+            double l3; // Holds point gain/loss from weighted GPA
+            double l4; // Holds point gain/loss from unweighted GPA
             Scanner input = new Scanner(new File("LastTime.txt"));
             double i2 = input.nextDouble();
             double j2 = input.nextDouble();
+            double k2 = input.nextDouble();
+            double l2 = input.nextDouble();
+            // Percentage GPA
             if (i > i2) { // Current weighted GPA is better than the last one.
                 i3 = i / i2;
                 i4 = i - i2;
@@ -148,6 +162,31 @@ public class IOFile {
             }
             else if (j == j2) // Current unweighted GPA is the same as the last one.
                 System.out.println("Your unweighted GPA did not improve nor drop.");
+            // Credit GPA
+            if (k > k2) { // Current weighted GPA is better than the last one.
+                k3 = k / k2;
+                k4 = k - k2;
+                System.out.println("Your weighted credit GPA improved by " + format.format(k3) + "% (" + format.format(k4) + " points).");
+            }
+            else if (k < k2) { // Current weighted GPA is worse than the last one.
+                k3 = k2 / k;
+                k4 = k2 - k;
+                System.out.println("Your weighted credit GPA dropped by " + format.format(k3) + "% (" + format.format(k4) + " points).");
+            }
+            else if (k == k2) // Current weighted GPA is the same as the last one.
+                System.out.println("Your weighted credit GPA did not improve nor drop.");
+            if (l > l2) { // Current unweighted GPA is better than the last one.
+                l3 = l / l2;
+                l4 = l - l2;
+                System.out.println("Your unweighted credit GPA improved by " + format.format(l3) + "% (" + format.format(l4) + " points).");
+            }
+            else if (l < l2) { // Current unweighted GPA is worse than the last one.
+                l3 = l2 / l;
+                l4 = l2 - l;
+                System.out.println("Your unweighted credit GPA dropped by " + format.format(l3) + "% (" + format.format(l4) + " points).");
+            }
+            else if (l == l2) // Current unweighted GPA is the same as the last one.
+                System.out.println("Your unweighted credit GPA did not improve nor drop.");
             input.close();
         } catch (FileNotFoundException e) { // Run this if we can't find "LastTime.txt".
 	        System.out.println("This seems to be your first test run!");
@@ -162,6 +201,8 @@ public class IOFile {
 	private void calculateAverage() { // Calculate the average weighted and unweighted GPA
 		GPA = GPA / lines;
 		GPA2 = GPA2 / lines;
+		Credits = Credits / lines;
+		Credits2 = Credits2 / lines;
 	}
     private void calculateCredits(double grade, double honors) { // Add credits for each class.
 	    if (grade <= 100 && grade >= 94) { // A+ or A
@@ -216,9 +257,5 @@ public class IOFile {
             Credits += 0.5;
         if (honors == 2)
             Credits += 1.0;
-    }
-    private void calculateCredits2() { // Calculate average credit GPA
-	    Credits = Credits / lines;
-	    Credits2 = Credits2 / lines;
     }
 }
