@@ -21,14 +21,15 @@ public class IOFile {
 	private int lines;
 	private DecimalFormat format = new DecimalFormat("0.00");
 	private DecimalFormat format2 = new DecimalFormat("0.000");
+	private boolean gui;
 	
-	public IOFile() {
+	public IOFile() { // Default constructor
 		file = "";
 	}
-	public IOFile(String string) {
+	public IOFile(String string) { // Parameter constructor (< v1.30 alpha 2)
 		file = string;
 	}
-	public void rwFile() {
+	void rwFile() {
 		try {
 		    // Input and output streams are built with the Scanner and BufferedWriter classes.
             Scanner input = new Scanner(new File(file));
@@ -67,6 +68,8 @@ public class IOFile {
                     // Create a new line for the output file, and go to the next file for the input file. Not doing this causes errors.
                     output.newLine();
                     input.nextLine();
+
+
                 }
 
             // Calculate the average weighted, unweighted, and credit GPA.
