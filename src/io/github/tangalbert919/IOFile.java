@@ -139,24 +139,24 @@ public class IOFile {
             double l2 = input.nextDouble();
             // Percentage GPA
             if (i > i2) { // Current weighted GPA is better than the last one.
-                i3 = i / i2;
+                i3 = ((i / i2) * 100) - 100;
                 i4 = i - i2;
                 System.out.println("Your weighted GPA improved by " + format2.format(i3) + "% (" + format.format(i4) + " points).");
             }
             else if (i < i2) { // Current weighted GPA is worse than the last one.
-                i3 = i2 / i;
+                i3 = ((i2 / i) *100) - 100;
                 i4 = i2 - i;
                 System.out.println("Your weighted GPA dropped by " + format2.format(i3) + "% (" + format.format(i4) + " points).");
             }
             else if (i == i2) // Current weighted GPA is the same as the last one.
                 System.out.println("Your weighted GPA did not improve nor drop.");
             if (j > j2) { // Current unweighted GPA is better than the last one.
-                j3 = j / j2;
+                j3 = ((j / j2) * 100) - 100;
                 j4 = j - j2;
                 System.out.println("Your unweighted GPA improved by " + format2.format(j3) + "% (" + format.format(j4) + " points).");
             }
             else if (j < j2) { // Current unweighted GPA is worse than the last one.
-                j3 = j2 / j;
+                j3 = ((j2 / j) * 100) - 100;
                 j4 = j2 - j;
                 System.out.println("Your unweighted GPA dropped by " + format2.format(j3) + "% (" + format.format(j4) + " points).");
             }
@@ -164,24 +164,24 @@ public class IOFile {
                 System.out.println("Your unweighted GPA did not improve nor drop.");
             // Credit GPA
             if (k > k2) { // Current weighted GPA is better than the last one.
-                k3 = k / k2;
+                k3 = ((k / k2) * 100) - 100;
                 k4 = k - k2;
                 System.out.println("Your weighted credit GPA improved by " + format.format(k3) + "% (" + format.format(k4) + " points).");
             }
             else if (k < k2) { // Current weighted GPA is worse than the last one.
-                k3 = k2 / k;
+                k3 = ((k2 / k) * 100) - 100;
                 k4 = k2 - k;
                 System.out.println("Your weighted credit GPA dropped by " + format.format(k3) + "% (" + format.format(k4) + " points).");
             }
             else if (k == k2) // Current weighted GPA is the same as the last one.
                 System.out.println("Your weighted credit GPA did not improve nor drop.");
             if (l > l2) { // Current unweighted GPA is better than the last one.
-                l3 = l / l2;
+                l3 = ((l / l2) * 100) - 100;
                 l4 = l - l2;
                 System.out.println("Your unweighted credit GPA improved by " + format.format(l3) + "% (" + format.format(l4) + " points).");
             }
             else if (l < l2) { // Current unweighted GPA is worse than the last one.
-                l3 = l2 / l;
+                l3 = ((l2 / l) * 100) - 100;
                 l4 = l2 - l;
                 System.out.println("Your unweighted credit GPA dropped by " + format.format(l3) + "% (" + format.format(l4) + " points).");
             }

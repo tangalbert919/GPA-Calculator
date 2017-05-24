@@ -2,6 +2,9 @@
 |    CHANGELOG    |
 +-----------------+
 
+Version 1.31 (May 24, 2017)
+* Fixed a problem with incorrectly calculated percentage gain/loss.
+
 Version 1.30 (May 2, 2017)
 + We can compare credit GPA results now.
 * Decent modifications to the GUI.

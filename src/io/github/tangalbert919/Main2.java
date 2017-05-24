@@ -12,7 +12,7 @@ public class Main2 {
 
     public static void main(String args[]) {
         // We need to create a JFrame for this.
-        JFrame gui = new JFrame("GPA Calculator v1.30");
+        JFrame gui = new JFrame("GPA Calculator v1.31");
         gui.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         // The JPanel needs to be added, and the GUI needs a size.
