@@ -13,3 +13,7 @@ hs_err_pid*
 
 # IntelliJ IDEA
 .idea
+
+# Files used for testing
+GPA.txt
+LastTime.txt

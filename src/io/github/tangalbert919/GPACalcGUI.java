@@ -45,7 +45,7 @@ public class GPACalcGUI extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String filename = text.getText();
         if (filename.equals("info"))
-            textarea.append("GPA Calculator v1.30 \n");
+            textarea.append("GPA Calculator v1.31 \n");
         else {
             IOFile file = new IOFile(filename);
             file.rwFile();
