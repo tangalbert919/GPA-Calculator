@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
  */
 public class GPACalcGUI extends JPanel implements ActionListener {
     private JTextField text;
-    private JTextArea textarea;
+    static JTextArea textarea;
     GPACalcGUI() {
         super(new GridBagLayout());
 
@@ -44,12 +44,20 @@ public class GPACalcGUI extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         String filename = text.getText();
-        if (filename.equals("info"))
-            textarea.append("GPA Calculator v1.31 \n");
-        else {
-            IOFile file = new IOFile(filename);
-            file.rwFile();
-            textarea.append("GPA.txt file created.");
+        switch (filename) {
+            case "info":
+                textarea.append("GPA Calculator v1.40");
+                break;
+            case "help":
+                textarea.append("Type the name of the file within the text field above. Then press Enter.");
+                textarea.append("Make sure you add \".txt\" at the end of the file name, or the program will output an error.");
+                textarea.append("See the \"howto.txt\" file on how to make your file properly.");
+                break;
+            default:
+                IOFile file = new IOFile(filename, "GUI");
+                file.rwFile();
+                textarea.append("GPA.txt file created.");
+                break;
         }
     }
 }

@@ -14,6 +14,7 @@ import java.text.DecimalFormat;
 public class IOFile {
 	
 	private static String file;
+	private static String instance;
 	private double GPA;
 	private double GPA2;
 	private double Credits;
@@ -28,6 +29,11 @@ public class IOFile {
 	public IOFile(String string) { // Parameter constructor (< v1.30 alpha 2)
 		file = string;
 	}
+	// v1.40
+	public IOFile(String string, String stringtwo) {
+	    file = string;
+	    instance = stringtwo;
+    }
 	void rwFile() {
 		try {
 		    // Input and output streams are built with the Scanner and BufferedWriter classes.
@@ -74,14 +80,26 @@ public class IOFile {
             calculateAverage();
 
             // Display the results to the user, and then write it to the text file afterwards.
-            System.out.println("Average weighted GPA is: " + format.format(GPA));
-            System.out.println("Average unweighted GPA is: " + format.format(GPA2));
-            System.out.println("Average weighted credit GPA is: " + format.format(Credits));
-            System.out.println("Average unweighted credit GPA is: " + format.format(Credits2));
-            output.write("Average weighted GPA is: " + format.format(GPA) + "\n");
-            output.write("Average unweighted GPA is: " + format.format(GPA2) + "\n");
-            output.write("Average weighted credit GPA is: " + format.format(Credits) + "\n");
-            output.write("Average unweighted credit GPA is: " + format.format(Credits2) + "\n");
+            if (instance.equals("Command")) {
+                System.out.println("Average weighted GPA is: " + format.format(GPA));
+                System.out.println("Average unweighted GPA is: " + format.format(GPA2));
+                System.out.println("Average weighted credit GPA is: " + format.format(Credits));
+                System.out.println("Average unweighted credit GPA is: " + format.format(Credits2));
+            }
+            else {
+                GPACalcGUI.textarea.append("Average weighted GPA is: " + format.format(GPA));
+                GPACalcGUI.textarea.append("Average unweighted GPA is: " + format.format(GPA2));
+                GPACalcGUI.textarea.append("Average weighted credit GPA is: " + format.format(Credits));
+                GPACalcGUI.textarea.append("Average unweighted credit GPA is: " + format.format(Credits2));
+            }
+            output.write("Average weighted GPA is: " + format.format(GPA));
+            output.newLine();
+            output.write("Average unweighted GPA is: " + format.format(GPA2));
+            output.newLine();
+            output.write("Average weighted credit GPA is: " + format.format(Credits));
+            output.newLine();
+            output.write("Average unweighted credit GPA is: " + format.format(Credits2));
+            output.newLine();
 
             // Close the input and output streams to prevent resource leak.
             input.close();
@@ -91,10 +109,17 @@ public class IOFile {
             compareLast(GPA, GPA2, Credits, Credits2);
             writeResults(format.format(GPA), format.format(GPA2), format.format(Credits), format.format(Credits2));
 		} catch (IOException e) {
-		    errorFile();
-		    System.out.println("Sorry, but we can't find the file specified.");
-		    System.out.println("Perhaps you misspelled the file or forgot the \".txt\" ending.");
-		    System.out.println("Please re-run this program and try again.");
+		    if (instance.equals("Command")) {
+                errorFile();
+                System.out.println("Sorry, but we can't find the file specified.");
+                System.out.println("Perhaps you misspelled the file or forgot the \".txt\" ending.");
+                System.out.println("Please re-run this program and try again.");
+            }
+		    else {
+		        GPACalcGUI.textarea.append("Sorry, but we can't find the file specified.");
+		        GPACalcGUI.textarea.append("Perhaps you misspelled the file or forgot the \".txt\" ending.");
+		        GPACalcGUI.textarea.append("Check for typos and try again.");
+            }
         }
 	}
 	private void errorFile() {
@@ -204,6 +229,7 @@ public class IOFile {
 		Credits = Credits / lines;
 		Credits2 = Credits2 / lines;
 	}
+	// This method is overly complex. We need to simplify this.
     private void calculateCredits(double grade, double honors) { // Add credits for each class.
 	    if (grade <= 100 && grade >= 94) { // A+ or A
             Credits += 4.0;
