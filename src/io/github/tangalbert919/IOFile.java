@@ -92,14 +92,10 @@ public class IOFile {
                 GPACalcGUI.textarea.append("Average weighted credit GPA is: " + format.format(Credits));
                 GPACalcGUI.textarea.append("Average unweighted credit GPA is: " + format.format(Credits2));
             }
-            output.write("Average weighted GPA is: " + format.format(GPA));
-            output.newLine();
-            output.write("Average unweighted GPA is: " + format.format(GPA2));
-            output.newLine();
-            output.write("Average weighted credit GPA is: " + format.format(Credits));
-            output.newLine();
-            output.write("Average unweighted credit GPA is: " + format.format(Credits2));
-            output.newLine();
+            output.write("Average weighted GPA is: " + format.format(GPA) + "\n" +
+                    "Average unweighted GPA is: " + format.format(GPA2) + "\n" +
+                    "Average weighted credit GPA is: " + format.format(GPA) + "\n" +
+                    "Average unweighted credit GPA is: " + format.format(GPA2) + "\n");
 
             // Close the input and output streams to prevent resource leak.
             input.close();
