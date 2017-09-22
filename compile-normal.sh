@@ -4,7 +4,7 @@ echo The command-line version of the GPA Calculator will now be compiled.
 
 echo Please wait while we compile the files...
 
-javac src/io/github/tangalbert919/Main.java src/io/github/tangalbert919/IOFile.java
+javac src/io/github/tangalbert919/Main.java src/io/github/tangalbert919/IOFile.java src/io/github/tangalbert919/HelpFile.java
 
 echo Compilation succeeded. Building the jar file now...
 
