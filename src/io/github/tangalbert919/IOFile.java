@@ -150,8 +150,8 @@ public class IOFile {
             double j4; // Holds point gain/loss from unweighted GPA
             // k and l are for credit GPA
             double k3; // Holds percentage gain/loss from weighted GPA
-            double k4; // Holds percentage gain/loss from unweighted GPA
-            double l3; // Holds point gain/loss from weighted GPA
+            double l3; // Holds percentage gain/loss from unweighted GPA
+            double k4; // Holds point gain/loss from weighted GPA
             double l4; // Holds point gain/loss from unweighted GPA
             Scanner input = new Scanner(new File("LastTime.txt"));
             double i2 = input.nextDouble();
@@ -171,6 +171,7 @@ public class IOFile {
             }
             else if (i == i2) // Current weighted GPA is the same as the last one.
                 System.out.println("Your weighted GPA did not improve nor drop.");
+
             if (j > j2) { // Current unweighted GPA is better than the last one.
                 j3 = ((j / j2) * 100) - 100;
                 j4 = j - j2;
@@ -183,6 +184,7 @@ public class IOFile {
             }
             else if (j == j2) // Current unweighted GPA is the same as the last one.
                 System.out.println("Your unweighted GPA did not improve nor drop.");
+
             // Credit GPA
             if (k > k2) { // Current weighted GPA is better than the last one.
                 k3 = ((k / k2) * 100) - 100;
@@ -196,6 +198,7 @@ public class IOFile {
             }
             else if (k == k2) // Current weighted GPA is the same as the last one.
                 System.out.println("Your weighted credit GPA did not improve nor drop.");
+
             if (l > l2) { // Current unweighted GPA is better than the last one.
                 l3 = ((l / l2) * 100) - 100;
                 l4 = l - l2;
@@ -231,50 +234,51 @@ public class IOFile {
             Credits += 4.0;
             Credits2 += 4.0;
         }
-        if (grade < 94 && grade >= 90) { // A-
+        else if (grade < 94 && grade >= 90) { // A-
             Credits += 3.7;
             Credits2 += 3.7;
         }
-        if (grade < 90 && grade >= 87) { // B+
+        else if (grade < 90 && grade >= 87) { // B+
             Credits += 3.3;
             Credits2 += 3.3;
         }
-        if (grade < 87 && grade >= 84) { // B
+        else if (grade < 87 && grade >= 84) { // B
             Credits += 3.0;
             Credits2 += 3.0;
         }
-        if (grade < 84 && grade >= 80) { // B-
+        else if (grade < 84 && grade >= 80) { // B-
             Credits += 2.7;
             Credits2 += 2.7;
         }
-        if (grade < 80 && grade >= 77) { // C+
+        else if (grade < 80 && grade >= 77) { // C+
             Credits += 2.3;
             Credits2 += 2.3;
         }
-        if (grade < 77 && grade >= 74) { // C
+        else if (grade < 77 && grade >= 74) { // C
             Credits += 2.0;
             Credits2 += 2.0;
         }
-        if (grade < 74 && grade >= 70) { // C-
+        else if (grade < 74 && grade >= 70) { // C-
             Credits += 1.7;
             Credits2 += 1.7;
         }
-        if (grade < 70 && grade >= 67) { // D+
+        else if (grade < 70 && grade >= 67) { // D+
             Credits += 1.3;
             Credits2 += 1.3;
         }
-        if (grade < 67 && grade >= 64) { // D
+        else if (grade < 67 && grade >= 64) { // D
             Credits += 1.0;
             Credits2 += 1.0;
         }
-        if (grade < 64 && grade >= 60) { // D-
+        else if (grade < 64 && grade >= 60) { // D-
             Credits += 0.7;
             Credits2 += 0.7;
         }
-        if (grade < 60) { // F
+        else if (grade < 60) { // F
             Credits += 0;
             Credits2 += 0;
         }
+
         if (honors == 1)
             Credits += 0.5;
         if (honors == 2)
