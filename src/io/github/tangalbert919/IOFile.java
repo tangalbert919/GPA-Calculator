@@ -68,7 +68,11 @@ public class IOFile {
                     // System.out.println(grade + " " + multiplier);
 
                     // Display the grade to the user and write it to the text file.
-                    System.out.println("Grade in class " + j + " is: " + k + " (" + grade + " without multiplier).");
+                    if (instance.equals("Command"))
+                        System.out.println("Grade in class " + j + " is: " + k + " (" + grade + " without multiplier).");
+                    else
+                        GPACalcGUI.textarea.append("Grade in class " + j + " is: " + k + " (" + grade + " without multiplier). \n");
+
                     output.write("Grade in class " + j +  " is " + k + " (" + grade + " without multiplier).");
 
                     // Create a new line for the output file, and go to the next file for the input file. Not doing this causes errors.
@@ -87,10 +91,10 @@ public class IOFile {
                 System.out.println("Average unweighted credit GPA is: " + format.format(Credits2));
             }
             else {
-                GPACalcGUI.textarea.append("Average weighted GPA is: " + format.format(GPA));
-                GPACalcGUI.textarea.append("Average unweighted GPA is: " + format.format(GPA2));
-                GPACalcGUI.textarea.append("Average weighted credit GPA is: " + format.format(Credits));
-                GPACalcGUI.textarea.append("Average unweighted credit GPA is: " + format.format(Credits2));
+                GPACalcGUI.textarea.append("Average weighted GPA is: " + format.format(GPA) + "\n");
+                GPACalcGUI.textarea.append("Average unweighted GPA is: " + format.format(GPA2) + "\n");
+                GPACalcGUI.textarea.append("Average weighted credit GPA is: " + format.format(Credits) + "\n");
+                GPACalcGUI.textarea.append("Average unweighted credit GPA is: " + format.format(Credits2) + "\n");
             }
             output.write("Average weighted GPA is: " + format.format(GPA) + "\n" +
                     "Average unweighted GPA is: " + format.format(GPA2) + "\n" +
