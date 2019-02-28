@@ -4,7 +4,7 @@ echo The GUI version of the GPA Calculator will now be compiled.
 
 echo Please wait while we compile the files...
 
-javac src/io/github/tangalbert919/Main2.java src/io/github/tangalbert919/IOFile.java src/io/github/tangalbert919/GPACalcGUI.java src/io/github/tangalbert919/HelpFile.java
+javac src/io/github/tangalbert919/Main2.java src/io/github/tangalbert919/IOFile.java src/io/github/tangalbert919/GPACalcGUI.java src/io/github/tangalbert919/HelpFile.java src/io/github/tangalbert919/TemplateFile.java
 
 echo Compilation succeeded. Building the jar file now...
 
