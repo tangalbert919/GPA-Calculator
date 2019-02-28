@@ -19,11 +19,9 @@ class HelpFile {
                     "The numbers can have decimals (except for the last number). Put in 0 for regular, 1 for Honors, and 2 for AP/IB. \n" + "\n" +
                     "For the second number, do NOT put in \"x\" at the end or the beginning, or the program will fail. \n" + "\n" +
                     "Follow this format for all of your classes. Make sure there is an extra line at the end of the file or the program will fail. \n");
-
             help.close();
         } catch (IOException e) {
             System.out.println("This is not possible...");
         }
-
     }
 }

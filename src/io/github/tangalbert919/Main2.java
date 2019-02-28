@@ -16,6 +16,7 @@ public class Main2 {
         gui.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         HelpFile.generateFile();
+        TemplateFile.generateFile();
 
         // The JPanel needs to be added, and the GUI needs a size.
         gui.add(new GPACalcGUI());

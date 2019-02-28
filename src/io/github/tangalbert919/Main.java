@@ -12,6 +12,7 @@ public class Main {
 		System.out.println("GPA Calculator v1.40");
 		System.out.println("If you need help, check out the \"HOWTO.txt\" file.");
 		HelpFile.generateFile();
+		TemplateFile.generateFile();
 		System.out.print("Enter the file name (Ex: input.txt) --> ");
 		String input = enterString();
 		IOFile file = new IOFile(input, "Command");
