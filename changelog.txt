@@ -2,6 +2,9 @@
 |    CHANGELOG    |
 +-----------------+
 
+Version 1.40 (February 28, 2019)
+* Start generating template text file.
+
 Version 1.31 (May 24, 2017)
 * Fixed a problem with incorrectly calculated percentage gain/loss.
 
