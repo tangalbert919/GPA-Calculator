@@ -11,7 +11,7 @@ import java.io.IOException;
 class HelpFile {
     static void generateFile() {
         try {
-            BufferedWriter help = new BufferedWriter(new FileWriter("howto.txt"));
+            BufferedWriter help = new BufferedWriter(new FileWriter("helpfile.txt"));
             help.write("In your file, you need to follow these guidelines so the program doesn't return errors: \n" + "\n" +
                     "1. In the first line of the file, specify how many classes you have. This should just be a number. \n" + "\n" +
                     "2. For the next few lines, those will represent the grade you have in each class. For each line, put in 3 numbers: \n" + "\n" +
