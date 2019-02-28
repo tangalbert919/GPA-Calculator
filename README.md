@@ -15,4 +15,3 @@ This is for people who want to find out what their GPA is, and those people are 
 ### Planned
 -------------------
 * Create a graph that shows how your GPA is changing.
-* Construct a GUI for those who don't want to run the command-line version.
